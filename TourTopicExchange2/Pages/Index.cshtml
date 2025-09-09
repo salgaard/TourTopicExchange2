@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+
+<h2>Tour Booking</h2>
+
+<form method="post">
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label>City</label>
+        <select asp-for="City">
+            <option value="Odense">Odense</option>
+            <option value="Vejle">Vejle</option>
+        </select>
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="Action" value="book" /> Book
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="Action" value="cancel" /> Cancel
+        </label>
+    </div>
+    <button type="submit">Send</button>
+</form>
+
+@if (Model.StatusMessage != null)
+{
+    <p><b>@Model.StatusMessage</b></p>
+}
